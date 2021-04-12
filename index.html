@@ -160,6 +160,41 @@
 					<section>
 						<iframe class="stretch" data-src="https://tmate.io/t/bschiffthaler/public"></iframe>
 					</section>
+					<section>
+						<p>Transferring files between computers</p>
+						<ul>
+							<li class="fragment">Linux/Mac: <code class="monokai-red">rsync</code></li>
+							<li class="fragment">Windows: <code class="monokai-red">pscp.exe</code> (PuTTY)</li>
+						</ul>
+					</section>
+					<section>
+						<p>Example command</p>
+						<pre>
+							<code class="bash" data-trim data-noescape>
+							# Copy from my computer to server
+							rsync my_local_file.txt bastian@franklin.upsc.se:my_remote_file.txt
+							rsync -ar my_local_dir bastian@franklin.upsc.se:my_remote_dir
+							# Copy from server to local only requires flipping the arguments
+							rsync -ar bastian@franklin.upsc.se:my_remote_dir my_local_dir
+							# SSH on non-standard ports needs to be specified
+							rsync -e "ssh -p 12044" -ar bastian@franklin.upsc.se:my_remote_dir my_local_dir
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>Example command</p>
+						<pre>
+							<code class="bash" data-trim data-noescape>
+							# Copy from my computer to server
+							pscp my_local_file.txt bastian@franklin.upsc.se:my_remote_file.txt
+							pscp -r my_local_dir bastian@franklin.upsc.se:my_remote_dir
+							# Copy from server to local only requires flipping the arguments
+							pscp -r bastian@franklin.upsc.se:my_remote_dir my_local_dir
+							# SSH on non-standard ports needs to be specified
+							pscp -P12044 bastian@franklin.upsc.se:my_remote_dir my_local_dir
+							</code>
+						</pre>
+					</section>
 				</section>
 				<section>
 					<iframe class='stretch' allowfullscreen='true' allowtransparency='true' frameborder='0' data-src='https://www.mentimeter.com/embed/d5a8080cb8bbb5cf52eeeb616a8bfbc3/cfebe87d6b9e'></iframe>
